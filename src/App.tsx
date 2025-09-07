@@ -2,9 +2,7 @@
 import { useEffect } from "react";
 import { MapContainer, TileLayer, Marker, Popup, Polyline } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-// import { LatLngExpression, MapContainerProps } from "leaflet";
-import type { LatLngExpression } from "leaflet";
-
+import type  { LatLngExpression } from "leaflet";
 import {
   PieChart,
   Pie,
@@ -117,9 +115,10 @@ const App=()=>{
               <h4 className="mb-4 font-semibold">Train Status</h4>
               <PieChart width={250} height={250}>
                 <Pie data={pieData} dataKey="value" cx="50%" cy="50%" outerRadius={80} label>
-                  {pieData.map(( index) => (
-                    <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                  ))}
+                  {pieData.map((entry, index) => (
+  <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+))}
+
                 </Pie>
                 <Tooltip />
               </PieChart>
