@@ -2,7 +2,9 @@
 import { useEffect } from "react";
 import { MapContainer, TileLayer, Marker, Popup, Polyline } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import { LatLngExpression } from "leaflet";
+// import { LatLngExpression, MapContainerProps } from "leaflet";
+import type { LatLngExpression, MapOptions } from "leaflet";
+
 import {
   PieChart,
   Pie,
@@ -156,7 +158,7 @@ const App=()=>{
           <h3 className="text-3xl font-bold mb-6">Live Train Route</h3>
           <p className="text-gray-300 mb-8">Dummy visualization of a Delhi-Agra-Jaipur route.</p>
           <div className="h-[400px] rounded-2xl overflow-hidden shadow-lg">
-            <MapContainer center={[27.5, 77.5]} zoom={6} style={{ height: "100%", width: "100%" }}>
+            <MapContainer center={[27.5, 77.5] as LatLngExpression} zoom={6} style={{ height: "100%", width: "100%" }}>
               <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
               {trainRoute.map((pos, i) => (
                 <Marker key={i} position={pos}>
