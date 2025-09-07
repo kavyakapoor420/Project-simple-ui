@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import axios from "axios";
-import { MessageCircle, Bot, Send, X } from "lucide-react";
+import {Bot, Send, X } from "lucide-react";
 
 const Chatbot = () => {
   const API_KEY = "AIzaSyCsA7wL-Xusb21c8oS37CQ9FpwlSGtQf_k";

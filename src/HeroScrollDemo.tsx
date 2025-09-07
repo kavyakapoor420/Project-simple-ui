@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+
 import { ContainerScroll } from '../src/components/ui/container-scroll-animation'
 import TrainImage from '../src/assets/Train.png'
 export function HeroScrollDemo() {
