@@ -80,7 +80,7 @@ export default function App() {
         </p>
         <div className="space-x-4">
           <button className="bg-blue-500 hover:bg-blue-600 px-6 py-3 rounded-xl shadow-lg font-semibold">Get Started</button>
-          <button className="bg-gray-800 hover:bg-gray-700 px-6 py-3 rounded-xl font-semibold border border-gray-600">Watch Demo</button>
+          <button className="bg-gray-800 hover:bg-gray-700 px-6 py-3 rounded-xl font-semibold border border-gray-600">Train Priority Sys</button>
         </div>
       </section>
 
