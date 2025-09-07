@@ -7,7 +7,8 @@ const Chatbot = () => {
   const API_KEY = "AIzaSyCsA7wL-Xusb21c8oS37CQ9FpwlSGtQf_k";
 
   const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState([]);
+  type Message = { sender: "user" | "bot"; text: string };
+  const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -21,8 +22,8 @@ const Chatbot = () => {
     if (!input.trim()) return;
 
     // Record user message
-    const userMessage = { sender: "user", text: input };
-    setMessages([...messages, userMessage]);
+    const userMessage: Message = { sender: "user", text: input };
+    setMessages((prev) => [...prev, userMessage]);
     setInput("");
     setLoading(true);
 
@@ -59,7 +60,12 @@ User Query: ${input}
 
       setMessages((prev) => [...prev, { sender: "bot", text: botReply }]);
     } catch (error) {
-      console.error("Error fetching AI response:", error.response?.data || error.message);
+      if (error && typeof error === "object" && "response" in error) {
+        // @ts-ignore
+        console.error("Error fetching AI response:", error.response?.data || error.message);
+      } else {
+        console.error("Error fetching AI response:", error);
+      }
       setMessages((prev) => [
         ...prev,
         {

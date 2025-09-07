@@ -2,6 +2,7 @@
 import { useEffect } from "react";
 import { MapContainer, TileLayer, Marker, Popup, Polyline } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
+import { LatLngExpression } from "leaflet";
 import {
   PieChart,
   Pie,
@@ -15,8 +16,8 @@ import {
   LineChart,
   Line,
 } from "recharts";
-import Chatbot from "./Chatbot";
-import { HeroScrollDemo } from "./HeroScrollDemo";
+import Chatbot from './Chatbot'
+import {HeroScrollDemo} from './HeroScrollDemo'
 
 const pieData = [
   { name: "On-Time", value: 60 },
@@ -40,14 +41,13 @@ const lineData = [
   { hour: "3PM", traffic: 120 },
   { hour: "6PM", traffic: 160 },
 ];
-
-const trainRoute = [
+const trainRoute: LatLngExpression[] = [
   [28.6139, 77.209], // Delhi
   [27.1767, 78.0081], // Agra
   [26.9124, 75.7873], // Jaipur
 ];
 
-export default function App() {
+const App=()=>{
   useEffect(() => {
     document.title = "SamaySetu | AI Train Scheduling";
   }, []);
@@ -179,3 +179,6 @@ export default function App() {
     </div>
   );
 }
+
+
+export default App 
