@@ -115,9 +115,10 @@ const App=()=>{
               <h4 className="mb-4 font-semibold">Train Status</h4>
               <PieChart width={250} height={250}>
                 <Pie data={pieData} dataKey="value" cx="50%" cy="50%" outerRadius={80} label>
-                  {pieData.map((entry, index) => (
+                  {pieData.map((_, index) => (
   <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
 ))}
+
 
                 </Pie>
                 <Tooltip />
